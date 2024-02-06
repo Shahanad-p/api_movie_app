@@ -10,8 +10,6 @@ class TvScreen extends StatefulWidget {
 class _TvScreenState extends State<TvScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-     
-    );
+    return const Scaffold();
   }
 }

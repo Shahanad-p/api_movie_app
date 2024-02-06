@@ -10,8 +10,6 @@ class ShowScreen extends StatefulWidget {
 class _ShowScreenState extends State<ShowScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    
-    );
+    return const Scaffold();
   }
 }
