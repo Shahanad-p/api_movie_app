@@ -1,30 +1,28 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/view/upcoming_details.dart';
 
 Widget buildUpcomingMovies() {
   return SizedBox(
+    height: 220,
     width: double.infinity,
-    child: CarouselSlider.builder(
+    child: ListView.builder(
+      scrollDirection: Axis.horizontal,
+      physics: const BouncingScrollPhysics(),
       itemCount: 10,
-      options: CarouselOptions(
-          height: 250,
-          autoPlay: true,
-          viewportFraction: 0.55,
-          pageSnapping: true,
-          autoPlayCurve: Curves.fastOutSlowIn,
-          autoPlayAnimationDuration: const Duration(seconds: 1)),
-      itemBuilder: (context, itemIndex, pageViewIndex) => ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const UpcomingDetails()));
-          },
-          child: Container(
-            height: 350,
-            width: 200,
-            color: Colors.green,
+      itemBuilder: (context, index) => Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const UpcomingDetails()));
+            },
+            child: Container(
+              height: 200,
+              width: 180,
+              color: Colors.green,
+            ),
           ),
         ),
       ),

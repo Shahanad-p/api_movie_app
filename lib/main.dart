@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/widget/bottom_navbar.dart';
+import 'package:movie_app/view/widgets/bottom_navbar.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
