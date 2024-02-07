@@ -38,19 +38,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 22),
+                    fontSize: 20),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               buildTrendingMovies(),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               const Text('Top Rated Movies',
                   style: TextStyle(
                       color: Colors.amberAccent,
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               buildTopRatedMovies(),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               const Text('Now Playing',
                   style: TextStyle(
                       color: Colors.amberAccent,
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontSize: 20)),
               const SizedBox(height: 10),
               builNowPlayingMovies(),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               const Text(
                 'Upcoming Movies',
                 style: TextStyle(
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontWeight: FontWeight.bold,
                     fontSize: 20),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               buildUpcomingMovies(),
             ],
           ),

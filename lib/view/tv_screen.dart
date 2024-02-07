@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/view/widgets/onair_tvshows.dart';
+import 'package:movie_app/view/widgets/popular_tvshows.dart';
+import 'package:movie_app/view/widgets/toprated_tvshows.dart';
 
 class TvScreen extends StatefulWidget {
   const TvScreen({super.key});
@@ -16,18 +19,34 @@ class _TvScreenState extends State<TvScreen> {
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
-      body: const SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Trending Movies',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22),
-            ),
+            const Text('Top Rated TV Shows',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18)),
+            const SizedBox(height: 5),
+            buildTopRatedTvShows(),
+            const SizedBox(height: 5),
+            const Text('Popular TV Shows',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18)),
+            const SizedBox(height: 5),
+            buildPopularTvShows(),
+            const SizedBox(height: 5),
+            const Text('On The Air TV Shows',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18)),
+            const SizedBox(height: 5),
+            buildOnAirTvShows(),
           ],
         ),
       ),
