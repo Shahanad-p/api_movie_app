@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/view/widgets/now_playing_movies.dart';
 import 'package:movie_app/view/widgets/top_rated_movies.dart';
 import 'package:movie_app/view/widgets/trending_movies.dart';
 import 'package:movie_app/view/widgets/upcoming_movied.dart';
@@ -41,25 +42,31 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 10),
               buildTrendingMovies(),
-              const SizedBox(height: 15),
-              const Text(
-                'Top Rated Movies',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22),
-              ),
-              const SizedBox(height: 18),
+              const SizedBox(height: 10),
+              const Text('Top Rated Movies',
+                  style: TextStyle(
+                      color: Colors.amberAccent,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20)),
+              const SizedBox(height: 10),
               buildTopRatedMovies(),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
+              const Text('Now Playing',
+                  style: TextStyle(
+                      color: Colors.amberAccent,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20)),
+              const SizedBox(height: 10),
+              builNowPlayingMovies(),
+              const SizedBox(height: 10),
               const Text(
                 'Upcoming Movies',
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.amberAccent,
                     fontWeight: FontWeight.bold,
-                    fontSize: 22),
+                    fontSize: 20),
               ),
-              const SizedBox(height: 18),
+              const SizedBox(height: 10),
               buildUpcomingMovies(),
             ],
           ),

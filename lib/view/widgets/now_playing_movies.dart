@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/view/trending_details.dart';
 
-Widget buildTopRatedMovies() {
+Widget builNowPlayingMovies() {
   return SizedBox(
     height: 220,
     width: double.infinity,

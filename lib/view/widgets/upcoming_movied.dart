@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/view/upcoming_details.dart';
+import 'package:movie_app/view/trending_details.dart';
 
 Widget buildUpcomingMovies() {
   return SizedBox(
@@ -16,7 +16,7 @@ Widget buildUpcomingMovies() {
           child: InkWell(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const UpcomingDetails()));
+                  builder: (context) => const TrendingDetails()));
             },
             child: Container(
               height: 200,
