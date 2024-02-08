@@ -14,9 +14,9 @@ class BuildTrendingMovies extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: CarouselSlider.builder(
-          itemCount: 10,
+          itemCount: snapshot.data!.length,
           options: CarouselOptions(
-              height: 300,
+              height: 310,
               autoPlay: true,
               viewportFraction: 0.55,
               enlargeCenterPage: true,
@@ -31,10 +31,13 @@ class BuildTrendingMovies extends StatelessWidget {
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.network(
-                  filterQuality: FilterQuality.high,
-                  fit: BoxFit.cover,
-                  '${Constant.imagePath}${snapshot.data[itemIndex].posterPath}',
+                child: SizedBox(
+                  width: 400,
+                  child: Image.network(
+                    filterQuality: FilterQuality.high,
+                    fit: BoxFit.cover,
+                    '${Constant.imagePath}${snapshot.data![itemIndex].posterPath}',
+                  ),
                 ),
               ),
             );

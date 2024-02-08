@@ -24,7 +24,7 @@ class Movies {
       overview: json['overview'],
       posterPath: json['poster_path'],
       releaseDate: json['release_date'],
-      voteAverage: json['vote_average'],
+      voteAverage: json['vote_average'].toDouble(),
     );
   }
 }
