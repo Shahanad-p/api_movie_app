@@ -1,13 +1,13 @@
-class TrendingMovies {
+class Movies {
   String title;
   String backDropPath;
   String originalTitle;
   String overview;
   String posterPath;
   String releaseDate;
-  String voteAverage;
+  double voteAverage;
 
-  TrendingMovies({
+  Movies({
     required this.title,
     required this.backDropPath,
     required this.originalTitle,
@@ -16,15 +16,15 @@ class TrendingMovies {
     required this.releaseDate,
     required this.voteAverage,
   });
-  factory TrendingMovies.fromJson(Map<String, dynamic> json) {
-    return TrendingMovies(
-      title: json['title'] ?? 'cant fetch title name',
-      backDropPath: json['backdrop_path'] ?? 'cant fetch the image',
-      originalTitle: json['original_title'] ?? 'cant fetch title',
-      overview: json['overview'] ?? 'cant fetch overview description',
-      posterPath: json['poster_path'] ?? 'cant fetch the image',
-      releaseDate: json['release_date'] ?? 'cant fetch release date',
-      voteAverage: json['vote_average'] ?? 'cant fetch people voting',
+  factory Movies.fromJson(Map<String, dynamic> json) {
+    return Movies(
+      title: json['title'],
+      backDropPath: json['backdrop_path'],
+      originalTitle: json['original_title'],
+      overview: json['overview'],
+      posterPath: json['poster_path'],
+      releaseDate: json['release_date'],
+      voteAverage: json['vote_average'],
     );
   }
 }

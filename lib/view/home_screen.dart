@@ -14,11 +14,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late Future<List<TrendingMovies>> trendingMovies;
+  late Future<List<Movies>> trendingMovies;
+  late Future<List<Movies>> topRatedMovies;
+  late Future<List<Movies>> nowPlayingMovies;
+  late Future<List<Movies>> upcomingMovies;
   @override
   void initState() {
     super.initState();
     trendingMovies = Api().getTrendingMovies();
+    topRatedMovies = Api().getTopRatedMovies();
+    nowPlayingMovies = Api().getNowPlayingMovies();
+    upcomingMovies = Api().getUpcomingMovies();
   }
 
   @override
@@ -47,14 +53,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
-              const SizedBox(height: 32),
+              const SizedBox(height: 10),
               SizedBox(
                 child: FutureBuilder(
                   future: trendingMovies,
                   builder: (context, snapshot) {
-                    if (snapshot.hasError) {
-                      return const BuildTrendingMovies();
-                    } else if (snapshot.hasData) {
+                    if (snapshot.hasData) {
+                      return BuildTrendingMovies(
+                        snapshot: snapshot,
+                      );
+                    } else if (snapshot.hasError) {
                       return Center(
                           child: Text(
                         snapshot.error.toString(),
@@ -75,7 +83,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
               const SizedBox(height: 5),
-              const BuildTopRatedMovies(),
+              SizedBox(
+                child: FutureBuilder(
+                  future: topRatedMovies,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return BuildTopRatedMovies(
+                        snapshot: snapshot,
+                      );
+                    } else if (snapshot.hasError) {
+                      return Center(
+                          child: Text(
+                        snapshot.error.toString(),
+                        style: const TextStyle(color: Colors.white),
+                      ));
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  },
+                ),
+              ),
               const SizedBox(height: 5),
               const Text('Now Playing',
                   style: TextStyle(
@@ -83,7 +112,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
               const SizedBox(height: 10),
-              builNowPlayingMovies(),
+              SizedBox(
+                child: FutureBuilder(
+                  future: nowPlayingMovies,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return BuilNowPlayingMovies(
+                        snapshot: snapshot,
+                      );
+                    } else if (snapshot.hasError) {
+                      return Center(
+                          child: Text(
+                        snapshot.error.toString(),
+                        style: const TextStyle(color: Colors.white),
+                      ));
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  },
+                ),
+              ),
               const SizedBox(height: 5),
               const Text(
                 'Upcoming Movies',
@@ -93,7 +143,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 20),
               ),
               const SizedBox(height: 5),
-              const BuildUpcomingMovies(),
+              SizedBox(
+                child: FutureBuilder(
+                  future: upcomingMovies,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return BuildUpcomingMovies(
+                        snapshot: snapshot,
+                      );
+                    } else if (snapshot.hasError) {
+                      return Center(
+                          child: Text(
+                        snapshot.error.toString(),
+                        style: const TextStyle(color: Colors.white),
+                      ));
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  },
+                ),
+              ),
             ],
           ),
         ),

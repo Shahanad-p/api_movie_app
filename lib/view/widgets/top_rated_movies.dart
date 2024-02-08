@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/view/trending_details.dart';
 
 class BuildTopRatedMovies extends StatelessWidget {
-  const BuildTopRatedMovies({super.key});
+  const BuildTopRatedMovies({super.key, required this.snapshot});
+  final AsyncSnapshot snapshot;
 
   @override
   Widget build(BuildContext context) {
