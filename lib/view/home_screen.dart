@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/api/api.dart';
+import 'package:movie_app/models/trending_model.dart';
 import 'package:movie_app/view/widgets/now_playing_movies.dart';
 import 'package:movie_app/view/widgets/top_rated_movies.dart';
 import 'package:movie_app/view/widgets/trending_movies.dart';
@@ -12,6 +14,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late Future<List<TrendingMovies>> trendingMovies;
+  @override
+  void initState() {
+    super.initState();
+    trendingMovies = Api().getTrendingMovies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +42,32 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Text(
-                'Trending Movies',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
+              const Text('Trending Movies',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20)),
+              const SizedBox(height: 32),
+              SizedBox(
+                child: FutureBuilder(
+                  future: trendingMovies,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      return const BuildTrendingMovies();
+                    } else if (snapshot.hasData) {
+                      return Center(
+                          child: Text(
+                        snapshot.error.toString(),
+                        style: const TextStyle(color: Colors.white),
+                      ));
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  },
+                ),
               ),
-              const SizedBox(height: 5),
-              buildTrendingMovies(),
               const SizedBox(height: 5),
               const Text('Top Rated Movies',
                   style: TextStyle(
@@ -49,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
               const SizedBox(height: 5),
-              buildTopRatedMovies(),
+              const BuildTopRatedMovies(),
               const SizedBox(height: 5),
               const Text('Now Playing',
                   style: TextStyle(
@@ -67,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 20),
               ),
               const SizedBox(height: 5),
-              buildUpcomingMovies(),
+              const BuildUpcomingMovies(),
             ],
           ),
         ),

@@ -30,7 +30,7 @@ class _TvScreenState extends State<TvScreen> {
                     fontWeight: FontWeight.bold,
                     fontSize: 18)),
             const SizedBox(height: 5),
-            buildTopRatedTvShows(),
+            const BuildTopRatedTvShows(),
             const SizedBox(height: 5),
             const Text('Popular TV Shows',
                 style: TextStyle(
@@ -38,7 +38,7 @@ class _TvScreenState extends State<TvScreen> {
                     fontWeight: FontWeight.bold,
                     fontSize: 18)),
             const SizedBox(height: 5),
-            buildPopularTvShows(),
+            const BuildPopularTvShows(),
             const SizedBox(height: 5),
             const Text('On The Air TV Shows',
                 style: TextStyle(
@@ -46,7 +46,7 @@ class _TvScreenState extends State<TvScreen> {
                     fontWeight: FontWeight.bold,
                     fontSize: 18)),
             const SizedBox(height: 5),
-            buildOnAirTvShows(),
+            BuildOnAirTvShows(),
           ],
         ),
       ),
