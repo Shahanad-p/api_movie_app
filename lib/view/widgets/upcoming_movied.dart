@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/api/constant/constant.dart';
-import 'package:movie_app/view/trending_details.dart';
+import 'package:movie_app/view/detail_screen.dart';
 
 class BuildUpcomingMovies extends StatelessWidget {
   const BuildUpcomingMovies({super.key, required this.snapshot});
@@ -20,7 +20,7 @@ class BuildUpcomingMovies extends StatelessWidget {
           child: InkWell(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const TrendingDetails()));
+                  builder: (context) => const DetailScreen()));
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),

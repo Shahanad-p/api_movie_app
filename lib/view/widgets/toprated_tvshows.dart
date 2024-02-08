@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/view/trending_details.dart';
+import 'package:movie_app/view/detail_screen.dart';
 
 class BuildTopRatedTvShows extends StatelessWidget {
   const BuildTopRatedTvShows({super.key});
@@ -20,7 +20,7 @@ class BuildTopRatedTvShows extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const TrendingDetails()));
+                    builder: (context) => const DetailScreen()));
               },
               child: Container(
                 height: 200,

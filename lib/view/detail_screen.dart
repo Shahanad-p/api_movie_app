@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class TrendingDetails extends StatefulWidget {
-  const TrendingDetails({super.key});
+class DetailScreen extends StatefulWidget {
+  const DetailScreen({super.key});
 
   @override
-  State<TrendingDetails> createState() => _TrendingDetailsState();
+  State<DetailScreen> createState() => _DetailScreenState();
 }
 
-class _TrendingDetailsState extends State<TrendingDetails> {
+class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Trending',
+          'Details',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.transparent,
