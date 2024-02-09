@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/controller/home_provider.dart';
-import 'package:movie_app/widgets/onair_tvshows.dart';
-import 'package:movie_app/widgets/popular_tvshows.dart';
-import 'package:movie_app/widgets/toprated_tvshows.dart';
+import 'package:movie_app/widgets/tv_ui_screen.dart';
 import 'package:provider/provider.dart';
 
 class TvScreen extends StatefulWidget {
@@ -24,23 +22,23 @@ class _TvScreenState extends State<TvScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Top Rated TV Shows',
+            const Text('Top Rated TV Shows',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 18)),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             SizedBox(
               child: FutureBuilder(
                 future: fetchProvider.getHomeScreen(
                     url: Constant.topRatedTv, context: context),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return BuildTopRatedTvShows(
+                    return TvUiScreen(
                       snapshot: snapshot,
                     );
                   } else if (snapshot.hasError) {
@@ -57,20 +55,20 @@ class _TvScreenState extends State<TvScreen> {
                 },
               ),
             ),
-            SizedBox(height: 5),
-            Text('Popular TV Shows',
+            const SizedBox(height: 5),
+            const Text('Popular TV Shows',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 18)),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             SizedBox(
               child: FutureBuilder(
                 future: fetchProvider.getHomeScreen(
                     url: Constant.popularTv, context: context),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return BuildPopularTvShows(
+                    return TvUiScreen(
                       snapshot: snapshot,
                     );
                   } else if (snapshot.hasError) {
@@ -80,28 +78,26 @@ class _TvScreenState extends State<TvScreen> {
                       style: const TextStyle(color: Colors.white),
                     ));
                   } else {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
+                    return const Text('');
                   }
                 },
               ),
             ),
             // (),
-            SizedBox(height: 5),
-            Text('On The Air TV Shows',
+            const SizedBox(height: 5),
+            const Text('On The Air TV Shows',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 18)),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             SizedBox(
               child: FutureBuilder(
                 future: fetchProvider.getHomeScreen(
                     url: Constant.popularTv, context: context),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return BuildOnAirTvShows(
+                    return TvUiScreen(
                       snapshot: snapshot,
                     );
                   } else if (snapshot.hasError) {
@@ -111,9 +107,7 @@ class _TvScreenState extends State<TvScreen> {
                       style: const TextStyle(color: Colors.white),
                     ));
                   } else {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
+                    return const Text('');
                   }
                 },
               ),

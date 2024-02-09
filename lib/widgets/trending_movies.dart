@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/view/detail_screen.dart';
 
-class BuildTrendingMovies extends StatelessWidget {
-  const BuildTrendingMovies({super.key, required this.snapshot});
+class TrendingMovies extends StatelessWidget {
+  const TrendingMovies({super.key, required this.snapshot});
   final AsyncSnapshot snapshot;
 
   @override

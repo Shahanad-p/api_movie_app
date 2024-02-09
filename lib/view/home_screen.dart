@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/controller/home_provider.dart';
-import 'package:movie_app/widgets/now_playing_movies.dart';
-import 'package:movie_app/widgets/top_rated_movies.dart';
+import 'package:movie_app/widgets/movie_ui_screen.dart';
 import 'package:movie_app/widgets/trending_movies.dart';
-import 'package:movie_app/widgets/upcoming_movied.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -44,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.trendingUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return BuildTrendingMovies(
+                      return TrendingMovies(
                         snapshot: snapshot,
                       );
                     } else if (snapshot.hasError) {
@@ -74,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.topRatedUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return BuildTopRatedMovies(
+                      return MovieUiScreen(
                         snapshot: snapshot,
                       );
                     } else if (snapshot.hasError) {
@@ -84,9 +82,7 @@ class HomeScreen extends StatelessWidget {
                         style: const TextStyle(color: Colors.white),
                       ));
                     } else {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
+                      return const Text('');
                     }
                   },
                 ),
@@ -104,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.nowPlayingUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return BuilNowPlayingMovies(
+                      return MovieUiScreen(
                         snapshot: snapshot,
                       );
                     } else if (snapshot.hasError) {
@@ -114,9 +110,7 @@ class HomeScreen extends StatelessWidget {
                         style: const TextStyle(color: Colors.white),
                       ));
                     } else {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
+                      return const Text('');
                     }
                   },
                 ),
@@ -136,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.upcomigUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return BuildUpcomingMovies(
+                      return MovieUiScreen(
                         snapshot: snapshot,
                       );
                     } else if (snapshot.hasError) {
@@ -146,9 +140,7 @@ class HomeScreen extends StatelessWidget {
                         style: const TextStyle(color: Colors.white),
                       ));
                     } else {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
+                      return const Text('');
                     }
                   },
                 ),

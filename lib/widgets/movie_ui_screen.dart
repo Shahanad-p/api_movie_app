@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/view/detail_screen.dart';
 
-class BuildTopRatedMovies extends StatelessWidget {
-  const BuildTopRatedMovies({super.key, required this.snapshot});
+class MovieUiScreen extends StatelessWidget {
+  const MovieUiScreen({super.key, required this.snapshot});
   final AsyncSnapshot snapshot;
 
   @override
@@ -19,14 +19,11 @@ class BuildTopRatedMovies extends StatelessWidget {
           padding: const EdgeInsets.all(5.0),
           child: GestureDetector(
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
+              Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => DetailScreen(
-                    movies: snapshot.data[index],
-                    // id: snapshot.data[index],
-                  ),
-                ),
-              );
+                        movies: snapshot.data[index],
+                        // id: snapshot.data[index],
+                      )));
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
@@ -35,7 +32,7 @@ class BuildTopRatedMovies extends StatelessWidget {
                 child: Image.network(
                   filterQuality: FilterQuality.high,
                   fit: BoxFit.cover,
-                  '${Constant.imagePath}${snapshot.data[index].posterPath}',
+                  '${Constant.imagePath}${snapshot.data![index].posterPath}',
                 ),
               ),
             ),
