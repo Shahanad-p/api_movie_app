@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/api/constant/constant.dart';
+import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/models/movies_model.dart';
 
 class DetailScreen extends StatelessWidget {

@@ -2,7 +2,7 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/api/constant/constant.dart';
+import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/view/detail_screen.dart';
 
 class BuildTrendingMovies extends StatelessWidget {

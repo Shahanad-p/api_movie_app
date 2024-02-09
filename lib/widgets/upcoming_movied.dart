@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/api/constant/constant.dart';
+import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/view/detail_screen.dart';
 
-class BuilNowPlayingMovies extends StatelessWidget {
-  const BuilNowPlayingMovies({super.key, required this.snapshot});
+class BuildUpcomingMovies extends StatelessWidget {
+  const BuildUpcomingMovies({super.key, required this.snapshot});
   final AsyncSnapshot snapshot;
 
   @override

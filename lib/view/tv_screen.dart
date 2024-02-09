@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/view/widgets/onair_tvshows.dart';
-import 'package:movie_app/view/widgets/popular_tvshows.dart';
-import 'package:movie_app/view/widgets/toprated_tvshows.dart';
+import 'package:movie_app/widgets/onair_tvshows.dart';
+import 'package:movie_app/widgets/popular_tvshows.dart';
+import 'package:movie_app/widgets/toprated_tvshows.dart';
+
 
 class TvScreen extends StatefulWidget {
   const TvScreen({super.key});

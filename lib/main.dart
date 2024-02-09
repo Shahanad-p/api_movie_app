@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/controller/bottom_bar_provide.dart';
 import 'package:movie_app/controller/home_provider.dart';
-import 'package:movie_app/view/widgets/bottom_navbar.dart';
+import 'package:movie_app/widgets/bottom_navbar.dart';
 import 'package:provider/provider.dart';
 
 void main(List<String> args) {
