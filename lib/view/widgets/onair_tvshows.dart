@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/view/detail_screen.dart';
 
 class BuildOnAirTvShows extends StatelessWidget {
   const BuildOnAirTvShows({super.key});
@@ -17,10 +16,10 @@ class BuildOnAirTvShows extends StatelessWidget {
           padding: const EdgeInsets.all(5.0),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child: InkWell(
+            child: GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const DetailScreen()));
+                // Navigator.of(context).push(MaterialPageRoute(
+                //     builder: (context) =>  DetailScreen()));
               },
               child: Container(
                 height: 200,

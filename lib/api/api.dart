@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:movie_app/api/constant/constant.dart';
-import 'package:movie_app/models/trending_model.dart';
+import 'package:movie_app/models/movies_model.dart';
 import 'package:http/http.dart' as http;
 
 //https://api.themoviedb.org/3/movie/now_playing?

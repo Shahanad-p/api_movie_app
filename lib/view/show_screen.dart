@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/view/detail_screen.dart';
+
 
 class ShowScreen extends StatefulWidget {
   const ShowScreen({super.key});
@@ -30,10 +30,10 @@ class _ShowScreenState extends State<ShowScreen> {
               padding: const EdgeInsets.all(5.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: InkWell(
+                child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const DetailScreen()));
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (context) => const DetailScreen()));
                   },
                   child: Container(
                     height: 180,

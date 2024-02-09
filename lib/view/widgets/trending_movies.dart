@@ -24,10 +24,12 @@ class BuildTrendingMovies extends StatelessWidget {
               autoPlayCurve: Curves.fastOutSlowIn,
               autoPlayAnimationDuration: const Duration(seconds: 1)),
           itemBuilder: (context, itemIndex, pageViewIndex) {
-            return InkWell(
+            return GestureDetector(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const DetailScreen()));
+                    builder: (context) => DetailScreen(
+                          movies: snapshot.data[itemIndex],
+                        )));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),

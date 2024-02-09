@@ -17,10 +17,12 @@ class BuildTopRatedMovies extends StatelessWidget {
         itemCount: snapshot.data!.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.all(5.0),
-          child: InkWell(
+          child: GestureDetector(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const DetailScreen()));
+                  builder: (context) => DetailScreen(
+                        movies: snapshot.data[index],
+                      )));
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),

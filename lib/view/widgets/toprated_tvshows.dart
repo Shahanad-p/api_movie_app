@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/view/detail_screen.dart';
+
 
 class BuildTopRatedTvShows extends StatelessWidget {
   const BuildTopRatedTvShows({super.key});
@@ -17,10 +17,10 @@ class BuildTopRatedTvShows extends StatelessWidget {
           padding: const EdgeInsets.all(5.0),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child: InkWell(
+            child: GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const DetailScreen()));
+                // Navigator.of(context).push(MaterialPageRoute(
+                //     builder: (context) => DetailScreen(movies: ,)));
               },
               child: Container(
                 height: 200,

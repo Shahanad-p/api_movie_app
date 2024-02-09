@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/api/api.dart';
-import 'package:movie_app/models/trending_model.dart';
+import 'package:movie_app/models/movies_model.dart';
 import 'package:movie_app/view/widgets/now_playing_movies.dart';
 import 'package:movie_app/view/widgets/top_rated_movies.dart';
 import 'package:movie_app/view/widgets/trending_movies.dart';
