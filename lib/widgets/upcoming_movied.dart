@@ -19,10 +19,14 @@ class BuildUpcomingMovies extends StatelessWidget {
           padding: const EdgeInsets.all(5.0),
           child: GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
+              Navigator.of(context).push(
+                MaterialPageRoute(
                   builder: (context) => DetailScreen(
-                        movies: snapshot.data[index],
-                      )));
+                    movies: snapshot.data[index],
+                    // id: snapshot.data[index],
+                  ),
+                ),
+              );
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),

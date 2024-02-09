@@ -29,6 +29,7 @@ class BuildTrendingMovies extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => DetailScreen(
                           movies: snapshot.data[itemIndex],
+                          // id: snapshot.data[itemIndex],
                         )));
               },
               child: ClipRRect(

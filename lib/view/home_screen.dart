@@ -1,34 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/service/api.dart';
-import 'package:movie_app/models/movies_model.dart';
-import 'package:movie_app/view/widgets/upcoming_movied.dart';
+import 'package:movie_app/constant/constant.dart';
+import 'package:movie_app/controller/home_provider.dart';
 import 'package:movie_app/widgets/now_playing_movies.dart';
 import 'package:movie_app/widgets/top_rated_movies.dart';
 import 'package:movie_app/widgets/trending_movies.dart';
+import 'package:movie_app/widgets/upcoming_movied.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  late Future<List<Movies>> trendingMovies;
-  late Future<List<Movies>> topRatedMovies;
-  late Future<List<Movies>> nowPlayingMovies;
-  late Future<List<Movies>> upcomingMovies;
-  @override
-  void initState() {
-    super.initState();
-    trendingMovies = Api().getTrendingMovies();
-    topRatedMovies = Api().getTopRatedMovies();
-    nowPlayingMovies = Api().getNowPlayingMovies();
-    upcomingMovies = Api().getUpcomingMovies();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final fetchProvider = Provider.of<HomeProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -56,7 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 10),
               SizedBox(
                 child: FutureBuilder(
-                  future: trendingMovies,
+                  future: fetchProvider.getHomeScreen(
+                      url: Constant.trendingUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return BuildTrendingMovies(
@@ -85,7 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 5),
               SizedBox(
                 child: FutureBuilder(
-                  future: topRatedMovies,
+                  future: fetchProvider.getHomeScreen(
+                      url: Constant.topRatedUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return BuildTopRatedMovies(
@@ -114,7 +100,8 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 10),
               SizedBox(
                 child: FutureBuilder(
-                  future: nowPlayingMovies,
+                  future: fetchProvider.getHomeScreen(
+                      url: Constant.nowPlayingUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return BuilNowPlayingMovies(
@@ -145,7 +132,8 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 5),
               SizedBox(
                 child: FutureBuilder(
-                  future: upcomingMovies,
+                  future: fetchProvider.getHomeScreen(
+                      url: Constant.upcomigUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return BuildUpcomingMovies(

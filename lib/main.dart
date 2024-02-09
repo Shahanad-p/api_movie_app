@@ -16,14 +16,14 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => BottomBarProvider()),
-        ChangeNotifierProvider(create: (context) => HomeProvide()),
+        ChangeNotifierProvider(create: (context) => HomeProvider()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.black,
         ),
         home: const BottomNavScreen(),
-        debugShowCheckedModeBanner: false,
       ),
     );
   }

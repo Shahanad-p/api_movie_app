@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:movie_app/constant/constant.dart';
+import 'package:movie_app/view/detail_screen.dart';
 
 class BuildTopRatedTvShows extends StatelessWidget {
-  const BuildTopRatedTvShows({super.key});
+  const BuildTopRatedTvShows({super.key, required this.snapshot});
+  final AsyncSnapshot snapshot;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +21,21 @@ class BuildTopRatedTvShows extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             child: GestureDetector(
               onTap: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => DetailScreen(movies: ,)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => DetailScreen(
+                          movies: snapshot.data[index],
+                        )));
               },
-              child: Container(
-                height: 200,
-                width: 180,
-                color: Colors.green,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: SizedBox(
+                  width: 170,
+                  child: Image.network(
+                    filterQuality: FilterQuality.high,
+                    fit: BoxFit.cover,
+                    '${Constant.imagePath}${snapshot.data[index].posterPath}',
+                  ),
+                ),
               ),
             ),
           ),

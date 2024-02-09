@@ -13,4 +13,16 @@ class Constant {
 
   static const upcomigUrl =
       'https://api.themoviedb.org/3/movie/upcoming?api_key=$apiKey';
+
+  static const castImagePath =
+      'https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg  ';
+  static const castPoint = "/credits?";
+
+  static const topRatedTv =
+      'https://api.themoviedb.org/3/tv/top_rated?api_key=$apiKey';
+  static const onAirTvShow =
+      'https://api.themoviedb.org/3/tv/on_the_air?api_key=$apiKey';
+  static const popularTv =
+      'https://api.themoviedb.org/3/tv/popular?api_key=$apiKey';
+  static const show = 'https://api.themoviedb.org/3/tv/popular?api_key=$apiKey';
 }
