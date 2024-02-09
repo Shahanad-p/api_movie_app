@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:movie_app/constant/constant.dart';
+import 'package:movie_app/controller/home_provider.dart';
+import 'package:movie_app/widgets/shows_widget.dart';
+import 'package:provider/provider.dart';
 
 class ShowScreen extends StatefulWidget {
-  const ShowScreen({super.key});
+  const ShowScreen({Key? key}) : super(key: key);
 
   @override
   State<ShowScreen> createState() => _ShowScreenState();
@@ -11,6 +14,7 @@ class ShowScreen extends StatefulWidget {
 class _ShowScreenState extends State<ShowScreen> {
   @override
   Widget build(BuildContext context) {
+    final fetchProvider = Provider.of<HomeProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -20,29 +24,26 @@ class _ShowScreenState extends State<ShowScreen> {
       body: Padding(
         padding: const EdgeInsets.only(left: 12, right: 12, top: 10),
         child: SizedBox(
-          height: double.infinity,
-          // width: double.infinity,
-          child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            physics: const BouncingScrollPhysics(),
-            itemCount: 10,
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: GestureDetector(
-                  onTap: () {
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (context) => const DetailScreen()));
-                  },
-                  child: Container(
-                    height: 180,
-                    width: 100,
-                    color: Colors.green,
-                  ),
-                ),
-              ),
-            ),
+          child: FutureBuilder(
+            future: fetchProvider.getHomeScreen(
+                url: Constant.show, context: context),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return AllShows(
+                  snapshot: snapshot,
+                );
+              } else if (snapshot.hasError) {
+                return Center(
+                    child: Text(
+                  snapshot.error.toString(),
+                  style: const TextStyle(color: Colors.white),
+                ));
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
           ),
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
-import 'package:movie_app/view/detail_screen.dart';
+
 
 class BuildOnAirTvShows extends StatelessWidget {
   const BuildOnAirTvShows({super.key, required this.snapshot});
@@ -21,10 +21,10 @@ class BuildOnAirTvShows extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             child: GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => DetailScreen(
-                          movies: snapshot.data[index],
-                        )));
+                // Navigator.of(context).push(MaterialPageRoute(
+                //     builder: (context) => DetailScreen(
+                //           movies: snapshot.data[index],
+                //         )));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),

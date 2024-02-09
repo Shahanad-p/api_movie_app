@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 
-
-class BuildPopularTvShows extends StatelessWidget {
-  const BuildPopularTvShows({super.key, required this.snapshot});
+class AllShows extends StatelessWidget {
+  const AllShows({super.key, required this.snapshot});
   final AsyncSnapshot snapshot;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 230,
-      width: double.infinity,
+      height: double.infinity,
       child: ListView.builder(
-        scrollDirection: Axis.horizontal,
+        scrollDirection: Axis.vertical,
         physics: const BouncingScrollPhysics(),
         itemCount: 10,
         itemBuilder: (context, index) => Padding(
@@ -22,14 +20,13 @@ class BuildPopularTvShows extends StatelessWidget {
             child: GestureDetector(
               onTap: () {
                 // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => DetailScreen(
-                //           movies: snapshot.data[index],
-                //         )));
+                //     builder: (context) => const DetailScreen()));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: SizedBox(
                   width: 170,
+                  height: 180,
                   child: Image.network(
                     filterQuality: FilterQuality.high,
                     fit: BoxFit.cover,
