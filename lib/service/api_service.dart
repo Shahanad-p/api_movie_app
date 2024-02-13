@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:dio/dio.dart';
 import 'package:movie_app/models/movies_model.dart';
 
@@ -16,6 +18,26 @@ class ApiService {
         return [];
       }
     } catch (e) {
+      return [];
+    }
+  }
+
+  Future<List<Movies>> searchMovie({required String searchUrl}) async {
+    try {
+      final response = await dio.get(searchUrl);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> searchData = response.data;
+        final List<dynamic> searchMovies = searchData["results"];
+        return searchMovies.map((search) => Movies.fromJson(search)).toList();
+      } else {
+        print('Error: ${response.statusCode} - ${response.statusMessage}');
+        return [];
+      }
+    } on DioError catch (e) {
+      print('Dio Error: ${e.message}');
+      return [];
+    } catch (e) {
+      print("Error: $e");
       return [];
     }
   }
