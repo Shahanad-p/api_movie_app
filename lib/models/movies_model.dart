@@ -1,11 +1,11 @@
 class Movies {
-  String title;
-  String backDropPath;
-  String originalTitle;
-  String overview;
-  String posterPath;
-  String releaseDate;
-  double voteAverage;
+  String? title;
+  String? backDropPath;
+  String? originalTitle;
+  String? overview;
+  String? posterPath;
+  String? releaseDate;
+  double? voteAverage;
   // int? id;
 
   Movies({

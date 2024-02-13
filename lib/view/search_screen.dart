@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/controller/search_provider.dart';
 import 'package:movie_app/view/detail_screen.dart';
@@ -52,7 +50,7 @@ class _SearchScreenState extends State<SearchScreen> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
+        padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
@@ -77,7 +75,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     border: InputBorder.none,
                     hintText: hintTexts[currentHintIndex],
                     hintStyle: const TextStyle(color: Colors.white),
-                    contentPadding: const EdgeInsets.only(left: 15, top: 10),
+                    contentPadding: const EdgeInsets.only(left: 15, top: 20),
                     suffixIcon: searchcontroller.queryController.text.isNotEmpty
                         ? IconButton(
                             color: Colors.red,
@@ -88,14 +86,10 @@ class _SearchScreenState extends State<SearchScreen> {
                             },
                           )
                         : null,
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: const BorderSide(color: Colors.white),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: const BorderSide(color: Colors.white),
-                    ),
+                    // enabledBorder: OutlineInputBorder(
+                    //   borderRadius: BorderRadius.circular(20),
+                    //   borderSide: const BorderSide(color: Colors.white),
+                    // ),
                   ),
                 ),
               ),
@@ -115,11 +109,14 @@ class _SearchScreenState extends State<SearchScreen> {
 
                       return GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
                               builder: (context) => DetailScreen(
-                                    movies: searchdata,
-                                    // id: searchdata.id!,
-                                  )));
+                                movies: searchdata,
+                                // id: searchdata.id!,
+                              ),
+                            ),
+                          );
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(5),

@@ -26,6 +26,34 @@ class _TvScreenState extends State<TvScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text('On The Air TV Shows',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18)),
+            const SizedBox(height: 5),
+            SizedBox(
+              child: FutureBuilder(
+                future: fetchProvider.getHomeScreen(
+                    url: Constant.popularTv, context: context),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return TvUiScreen(
+                      snapshot: snapshot,
+                    );
+                  } else if (snapshot.hasError) {
+                    return Center(
+                        child: Text(
+                      snapshot.error.toString(),
+                      style: const TextStyle(color: Colors.white),
+                    ));
+                  } else {
+                    return const Text('');
+                  }
+                },
+              ),
+            ),
+            const SizedBox(height: 5),
             const Text('Top Rated TV Shows',
                 style: TextStyle(
                     color: Colors.white,
@@ -57,35 +85,6 @@ class _TvScreenState extends State<TvScreen> {
             ),
             const SizedBox(height: 5),
             const Text('Popular TV Shows',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18)),
-            const SizedBox(height: 5),
-            SizedBox(
-              child: FutureBuilder(
-                future: fetchProvider.getHomeScreen(
-                    url: Constant.popularTv, context: context),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return TvUiScreen(
-                      snapshot: snapshot,
-                    );
-                  } else if (snapshot.hasError) {
-                    return Center(
-                        child: Text(
-                      snapshot.error.toString(),
-                      style: const TextStyle(color: Colors.white),
-                    ));
-                  } else {
-                    return const Text('');
-                  }
-                },
-              ),
-            ),
-            // (),
-            const SizedBox(height: 5),
-            const Text('On The Air TV Shows',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

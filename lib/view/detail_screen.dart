@@ -34,7 +34,7 @@ class DetailScreen extends StatelessWidget {
             floating: true,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                movies.title,
+                movies.title!,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
@@ -130,7 +130,7 @@ class DetailScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    movies.overview,
+                    movies.overview!,
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -156,7 +156,7 @@ class DetailScreen extends StatelessWidget {
                                       color: Colors.white),
                                 ),
                                 Text(
-                                  movies.releaseDate,
+                                  movies.releaseDate!,
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
@@ -184,7 +184,7 @@ class DetailScreen extends StatelessWidget {
                                 size: 16,
                               ),
                               Text(
-                                '${movies.voteAverage.toStringAsFixed(1)}/10',
+                                '${movies.voteAverage?.toStringAsFixed(1)}/10',
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,

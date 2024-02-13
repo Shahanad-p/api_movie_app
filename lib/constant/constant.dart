@@ -24,5 +24,6 @@ class Constant {
       'https://api.themoviedb.org/3/tv/on_the_air?api_key=$apiKey';
   static const popularTv =
       'https://api.themoviedb.org/3/tv/popular?api_key=$apiKey';
-  static const show = 'https://api.themoviedb.org/3/tv/popular?api_key=$apiKey';
+  static const show =
+      'https://api.themoviedb.org/3/trending/all/day?api_key=$apiKey';
 }
