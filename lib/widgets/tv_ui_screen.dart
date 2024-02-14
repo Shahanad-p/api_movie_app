@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
-import 'package:movie_app/view/detail_screen.dart';
+import 'package:movie_app/view/tv_details.dart';
 
 class TvUiScreen extends StatelessWidget {
   const TvUiScreen({super.key, required this.snapshot});
@@ -21,13 +21,11 @@ class TvUiScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             child: GestureDetector(
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => DetailScreen(
-                      movies: snapshot.data[index],
-                    ),
-                  ),
-                );
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => TvDetails(
+                          movie: snapshot.data[index],
+                          id: snapshot.data![index],
+                        )));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),

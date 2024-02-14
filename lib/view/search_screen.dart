@@ -86,55 +86,60 @@ class _SearchScreenState extends State<SearchScreen> {
                             },
                           )
                         : null,
-                    // enabledBorder: OutlineInputBorder(
-                    //   borderRadius: BorderRadius.circular(20),
-                    //   borderSide: const BorderSide(color: Colors.white),
-                    // ),
                   ),
                 ),
               ),
+              const SizedBox(height: 20),
               Center(
                 child: SizedBox(
-                  height: 700,
-                  child: GridView.builder(
-                    itemCount: searchcontroller.searchResults.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            mainAxisSpacing: 8,
-                            crossAxisSpacing: 8,
-                            crossAxisCount: 3,
-                            childAspectRatio: 1 / 1.4),
-                    itemBuilder: (context, index) {
-                      final searchdata = searchcontroller.searchResults[index];
+                  height: 650,
+                  child: searchcontroller.searchResults.isEmpty
+                      ? const Center(
+                          child: Text(
+                          'Search for movies',
+                          style: TextStyle(color: Colors.grey),
+                        ))
+                      : GridView.builder(
+                          itemCount: searchcontroller.searchResults.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  mainAxisSpacing: 8,
+                                  crossAxisSpacing: 8,
+                                  crossAxisCount: 3,
+                                  childAspectRatio: 1 / 1.4),
+                          itemBuilder: (context, index) {
+                            final searchdata =
+                                searchcontroller.searchResults[index];
 
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => DetailScreen(
-                                movies: searchdata,
-                                // id: searchdata.id!,
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailScreen(
+                                      movies: searchdata,
+                                      id: searchdata.id!,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.white),
+                                    image: DecorationImage(
+                                        image: NetworkImage(
+                                            "${Constant.imagePath}${searchdata.posterPath}"),
+                                        fit: BoxFit.fill,
+                                        filterQuality: FilterQuality.high),
+                                    color: Colors.black.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(5),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.white),
-                                image: DecorationImage(
-                                    image: NetworkImage(
-                                        "${Constant.imagePath}${searchdata.posterPath}"),
-                                    fit: BoxFit.fill,
-                                    filterQuality: FilterQuality.high),
-                                color: Colors.black.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(20)),
-                          ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
                 ),
               )
             ],

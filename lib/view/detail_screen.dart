@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
+import 'package:movie_app/models/cast_mode.dart';
 import 'package:movie_app/models/movies_model.dart';
+import 'package:movie_app/service/api_service.dart';
 
 class DetailScreen extends StatelessWidget {
   DetailScreen({
     super.key,
     required this.movies,
-    // required this.id,
+    required this.id,
   });
   final Movies movies;
-  // int id;
+  int id;
 
   @override
   Widget build(BuildContext context) {
@@ -64,63 +66,63 @@ class DetailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               child: Column(
                 children: [
-                  // SizedBox(height: 10),
-                  // SizedBox(
-                  //   height: 130,
-                  //   child: FutureBuilder(
-                  //     // future:Provider.of<CastProvider>(context,listen: false).loadCast(context, id),
-                  //     future: ApiService().getCast(
-                  //       castUrl:
-                  //           'https://api.themoviedb.org/3/movie/$id/credits?api_key=e43fdbf4130175e0f229d0945d5f13c9',
-                  //       context: context,
-                  //     ),
-                  //     builder:
-                  //         (context, AsyncSnapshot<List<CastModel>> snapshot) {
-                  //       if (snapshot.connectionState ==
-                  //           ConnectionState.waiting) {
-                  //         return const CircularProgressIndicator();
-                  //       } else if (snapshot.hasError) {
-                  //         return Text("Error: ${snapshot.error}");
-                  //       } else if (!snapshot.hasData ||
-                  //           snapshot.data!.isEmpty) {
-                  //         return const Text("No data available");
-                  //       } else {
-                  //         return SizedBox(
-                  //           height: 130,
-                  //           width: double.infinity,
-                  //           child: ListView.builder(
-                  //             itemCount: snapshot.data!.length,
-                  //             scrollDirection: Axis.horizontal,
-                  //             physics: const BouncingScrollPhysics(),
-                  //             itemBuilder: (context, index) {
-                  //               CastModel casts = snapshot.data![index];
-                  //               return Padding(
-                  //                 padding: const EdgeInsets.only(left: 10),
-                  //                 child: Column(
-                  //                   children: [
-                  //                     Padding(
-                  //                       padding:
-                  //                           const EdgeInsets.only(left: 12),
-                  //                       child: Padding(
-                  //                         padding: const EdgeInsets.all(2.0),
-                  //                         child: CircleAvatar(
-                  //                           radius: 45,
-                  //                           backgroundImage: NetworkImage(
-                  //                               '${Constant.imagePath}${casts.profilePath!}'),
-                  //                         ),
-                  //                       ),
-                  //                     ),
-                  //                     Text(casts.name!),
-                  //                   ],
-                  //                 ),
-                  //               );
-                  //             },
-                  //           ),
-                  //         );
-                  //       }
-                  //     },
-                  //   ),
-                  // ),
+                  SizedBox(height: 10),
+                  SizedBox(
+                    height: 130,
+                    child: FutureBuilder(
+                      // future:Provider.of<CastProvider>(context,listen: false).loadCast(context, id),
+                      future: ApiService().getCast(
+                        castUrl:
+                            'https://api.themoviedb.org/3/movie/$id/credits?api_key=e43fdbf4130175e0f229d0945d5f13c9',
+                        context: context,
+                      ),
+                      builder:
+                          (context, AsyncSnapshot<List<CastModel>> snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          return Text("Error: ${snapshot.error}");
+                        } else if (!snapshot.hasData ||
+                            snapshot.data!.isEmpty) {
+                          return const Text("No data available");
+                        } else {
+                          return SizedBox(
+                            height: 130,
+                            width: double.infinity,
+                            child: ListView.builder(
+                              itemCount: snapshot.data!.length,
+                              scrollDirection: Axis.horizontal,
+                              physics: const BouncingScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                CastModel casts = snapshot.data![index];
+                                return Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 12),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: CircleAvatar(
+                                            radius: 45,
+                                            backgroundImage: NetworkImage(
+                                                '${Constant.imagePath}${casts.profilePath!}'),
+                                          ),
+                                        ),
+                                      ),
+                                      Text(casts.name!),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  ),
                   const Text(
                     'Ovreview',
                     style: TextStyle(

@@ -23,7 +23,7 @@ class MovieUiScreen extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => DetailScreen(
                     movies: snapshot.data[index],
-                    // id: snapshot.data[index],
+                    id: snapshot.data![index],
                   ),
                 ),
               );
