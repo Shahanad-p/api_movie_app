@@ -13,14 +13,13 @@ class CastModel {
     required this.knowForDepartment,
   });
 
-factory CastModel.fromJson(Map<String, dynamic> json) {
-  return CastModel(
-    name: json['name']??"NO Data",
-    originalName: json['original_name']??"NO Data",
-    profilePath: json['profile_path']??"NO Data",
-    charecter: json['character']??"NO Data",
-    knowForDepartment: json['known_for_department']??"NO Data",
-  );
-}
-
+  factory CastModel.fromJson(Map<String, dynamic> json) {
+    return CastModel(
+      name: json['name'] ?? "NO name",
+      originalName: json['original_name'] ?? "NO name",
+      profilePath: json['profile_path'] ?? "NO image",
+      charecter: json['character'] ?? "NO name",
+      knowForDepartment: json['known_for_department'] ?? "NO Data",
+    );
+  }
 }

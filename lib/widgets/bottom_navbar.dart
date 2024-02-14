@@ -23,7 +23,7 @@ class BottomNavScreen extends StatelessWidget {
       body: screens[bottom.currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: bottom.currentIndex,
-        onTap: (index) => bottom.BottomBuild(index),
+        onTap: (index) => bottom.bottomBuild(index),
         selectedItemColor: const Color.fromARGB(255, 23, 72, 111),
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         unselectedItemColor: Colors.grey,

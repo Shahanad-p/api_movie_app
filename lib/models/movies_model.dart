@@ -7,6 +7,7 @@ class Movies {
   String? releaseDate;
   double? voteAverage;
   int? id;
+  String? name;
 
   Movies({
     required this.title,
@@ -17,6 +18,7 @@ class Movies {
     required this.releaseDate,
     required this.voteAverage,
     required this.id,
+    required this.name,
   });
   factory Movies.fromJson(Map<String, dynamic> json) {
     return Movies(
@@ -28,8 +30,7 @@ class Movies {
       releaseDate: json['release_date'] ?? 'No date',
       voteAverage: json['vote_average'].toDouble() ?? 'No voting',
       id: json['id'] ?? 'No data',
+      name: json['name'] ?? 'No name',
     );
   }
-
-  get name => null;
 }

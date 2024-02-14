@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 10),
               SizedBox(
                 child: FutureBuilder(
-                  future: fetchProvider.getHomeScreen(
+                  future: fetchProvider.fetchDatas(
                       url: Constant.trendingUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
@@ -68,7 +68,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 5),
               SizedBox(
                 child: FutureBuilder(
-                  future: fetchProvider.getHomeScreen(
+                  future: fetchProvider.fetchDatas(
                       url: Constant.topRatedUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
@@ -96,7 +96,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 10),
               SizedBox(
                 child: FutureBuilder(
-                  future: fetchProvider.getHomeScreen(
+                  future: fetchProvider.fetchDatas(
                       url: Constant.nowPlayingUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
@@ -126,7 +126,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 5),
               SizedBox(
                 child: FutureBuilder(
-                  future: fetchProvider.getHomeScreen(
+                  future: fetchProvider.fetchDatas(
                       url: Constant.upcomigUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {

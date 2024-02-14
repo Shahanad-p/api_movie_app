@@ -34,7 +34,7 @@ class _TvScreenState extends State<TvScreen> {
             const SizedBox(height: 5),
             SizedBox(
               child: FutureBuilder(
-                future: fetchProvider.getHomeScreen(
+                future: fetchProvider.fetchDatas(
                     url: Constant.popularTv, context: context),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
@@ -62,7 +62,7 @@ class _TvScreenState extends State<TvScreen> {
             const SizedBox(height: 5),
             SizedBox(
               child: FutureBuilder(
-                future: fetchProvider.getHomeScreen(
+                future: fetchProvider.fetchDatas(
                     url: Constant.topRatedTv, context: context),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
@@ -92,7 +92,7 @@ class _TvScreenState extends State<TvScreen> {
             const SizedBox(height: 5),
             SizedBox(
               child: FutureBuilder(
-                future: fetchProvider.getHomeScreen(
+                future: fetchProvider.fetchDatas(
                     url: Constant.popularTv, context: context),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {

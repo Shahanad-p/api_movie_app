@@ -1,3 +1,4 @@
+// ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/models/cast_mode.dart';
@@ -77,7 +78,7 @@ class TvDetails extends StatelessWidget {
                 child: FutureBuilder(
                   future: ApiService().getCast(
                     castUrl:
-                        'https://api.themoviedb.org/3/movie/$id/credits?api_key=aa9a8a205c0591e06a5292b3c1835f3a',
+                        'https://api.themoviedb.org/3/movie/$id/credits?api_key=${Constant.apiKey}',
                     context: context,
                   ),
                   builder: (context, AsyncSnapshot<List<CastModel>> snapshot) {
@@ -106,11 +107,9 @@ class TvDetails extends StatelessWidget {
                                       padding: const EdgeInsets.all(2.0),
                                       child: Image.network(
                                         '${Constant.imagePath}${casts.profilePath!}',
-                                        width: 90, // Adjust the width as needed
-                                        height:
-                                            90, // Adjust the height as needed
-                                        fit: BoxFit
-                                            .cover, // Adjust the BoxFit property as needed
+                                        width: 90,
+                                        height: 90,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                   ),

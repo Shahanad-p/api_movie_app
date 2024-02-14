@@ -1,5 +1,4 @@
 // ignore_for_file: deprecated_member_use
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/cast_mode.dart';
@@ -65,8 +64,9 @@ class ApiService {
   //   }
   // }
   //////////////////////
+  ///
   Future<List<CastModel>> getCast(
-      {required castUrl, required BuildContext context}) async {
+      {required String castUrl, required BuildContext context}) async {
     try {
       final response = await dio.get(castUrl);
       if (response.statusCode == 200) {

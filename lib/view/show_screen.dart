@@ -25,7 +25,7 @@ class _ShowScreenState extends State<ShowScreen> {
         padding: const EdgeInsets.only(left: 12, right: 12, top: 10),
         child: SizedBox(
           child: FutureBuilder(
-            future: fetchProvider.getHomeScreen(
+            future: fetchProvider.fetchDatas(
                 url: Constant.show, context: context),
             builder: (context, snapshot) {
               if (snapshot.hasData) {

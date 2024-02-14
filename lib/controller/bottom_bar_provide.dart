@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BottomBarProvider extends ChangeNotifier {
   int currentIndex = 0;
 
-  void BottomBuild(index) {
+  void bottomBuild(index) {
     currentIndex = index;
     notifyListeners();
   }

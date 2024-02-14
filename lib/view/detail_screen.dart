@@ -1,3 +1,4 @@
+// ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/models/cast_mode.dart';
@@ -66,7 +67,7 @@ class DetailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               child: Column(
                 children: [
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   SizedBox(
                     height: 130,
                     child: FutureBuilder(
@@ -101,18 +102,18 @@ class DetailScreen extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 12),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(2.0),
-                                          child: CircleAvatar(
-                                            radius: 45,
-                                            backgroundImage: NetworkImage(
-                                                '${Constant.imagePath}${casts.profilePath!}'),
-                                          ),
+                                        padding: const EdgeInsets.all(2.0),
+                                        child: CircleAvatar(
+                                          radius: 35,
+                                          backgroundImage: NetworkImage(
+                                              '${Constant.imagePath}${casts.profilePath!}'),
                                         ),
                                       ),
-                                      Text(casts.name!),
+                                      Text(
+                                        casts.name!,
+                                        style:
+                                            const TextStyle(color: Colors.grey),
+                                      ),
                                     ],
                                   ),
                                 );

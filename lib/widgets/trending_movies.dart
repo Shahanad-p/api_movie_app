@@ -27,10 +27,11 @@ class TrendingMovies extends StatelessWidget {
             return GestureDetector(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => DetailScreen(
-                          movies: snapshot.data[itemIndex],
-                          id: snapshot.data![itemIndex],
-                        )));
+                  builder: (context) => DetailScreen(
+                    movies: snapshot.data[itemIndex],
+                    id: snapshot.data![itemIndex],
+                  ),
+                ));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),

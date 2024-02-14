@@ -5,7 +5,7 @@ import 'package:movie_app/service/api_service.dart';
 class HomeProvider extends ChangeNotifier {
   final ApiService movieApiService = ApiService();
   List<Movies> movies = [];
-  Future getHomeScreen({required url, required BuildContext context}) async {
+  Future fetchDatas({required url, required BuildContext context}) async {
     try {
       List<Movies> movieResults =
           await movieApiService.getAllMovies(apiUrl: url, context: context);

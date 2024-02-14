@@ -16,7 +16,7 @@ class SearchProvider extends ChangeNotifier {
         searchResults = movies;
         notifyListeners();
       } catch (e) {
-        print("Error: $e");
+        // print("Error: $e");
       }
     } else {
       searchResults = [];
