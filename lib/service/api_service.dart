@@ -14,8 +14,6 @@ class ApiService {
         List<dynamic> movies = jsonList['results'];
         return movies.map((json) => Movies.fromJson(json)).toList();
       } else {
-        // print('somthing is missed, so got errors');
-        // throw Exception('');
         return [];
       }
     } catch (e) {
@@ -31,14 +29,11 @@ class ApiService {
         final List<dynamic> searchMovies = searchData["results"];
         return searchMovies.map((search) => Movies.fromJson(search)).toList();
       } else {
-        // print('Error: ${response.statusCode} - ${response.statusMessage}');
         return [];
       }
     } on DioError {
-      // print('Dio Error: ${e.message}');
       return [];
     } catch (e) {
-      // print("Error: $e");
       return [];
     }
   }
@@ -56,8 +51,6 @@ class ApiService {
           throw Exception('No "cast" key in response');
         }
       } else {
-        // log("${response.statusCode}");
-        //throw Exception('Error function - Status Code: ${response.statusCode}');
         return [];
       }
     } catch (e) {

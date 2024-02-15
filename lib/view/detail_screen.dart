@@ -5,11 +5,7 @@ import 'package:movie_app/models/movies_model.dart';
 import 'package:movie_app/widgets/cast_details.dart';
 
 class DetailScreen extends StatelessWidget {
-  DetailScreen({
-    super.key,
-    required this.movies,
-    required this.id,
-  });
+  DetailScreen({super.key, required this.movies, required this.id});
   final Movies movies;
   int id;
 

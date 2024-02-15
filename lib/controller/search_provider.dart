@@ -6,6 +6,7 @@ class SearchProvider extends ChangeNotifier {
   final TextEditingController queryController = TextEditingController();
   final ApiService service = ApiService();
   List<Movies> searchResults = [];
+
   void searchMovies(String query) async {
     if (query.isNotEmpty) {
       try {

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.black,
         ),
-        home: const BottomNavScreen(),
+        home: BottomBarContent(),
       ),
     );
   }

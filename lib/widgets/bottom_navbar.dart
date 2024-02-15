@@ -1,52 +1,69 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:movie_app/controller/bottom_bar_provide.dart';
 import 'package:movie_app/view/home_screen.dart';
 import 'package:movie_app/view/search_screen.dart';
 import 'package:movie_app/view/show_screen.dart';
-import 'package:movie_app/view/tv_screen.dart';
 import 'package:provider/provider.dart';
 
-class BottomNavScreen extends StatelessWidget {
-  const BottomNavScreen({super.key});
-
-  List get screens => [
-        const HomeScreen(),
-        const SearchScreen(),
-        const TvScreen(),
-        const ShowScreen(),
-      ];
-
+class BottomBarContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final bottom = Provider.of<BottomBarProvider>(context);
+    final provider = Provider.of<BottomBarProvider>(context);
+
     return Scaffold(
-      body: screens[bottom.currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: bottom.currentIndex,
-        onTap: (index) => bottom.bottomBuild(index),
-        selectedItemColor: const Color.fromARGB(255, 23, 72, 111),
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        unselectedItemColor: Colors.grey,
-        backgroundColor: Colors.black,
-        elevation: 5,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.tv),
-            label: 'TV',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.movie),
-            label: 'Show',
-          ),
+      body: IndexedStack(
+        index: provider.currentIndex,
+        children: const [
+          HomeScreen(),
+          SearchScreen(),
+          SearchScreen(),
+          ShowScreen(),
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            unselectedFontSize: 0,
+            elevation: 0,
+            currentIndex: provider.currentIndex,
+            onTap: (index) => provider.bottomBuild(index),
+            backgroundColor: Color.fromARGB(255, 5, 50, 16),
+            selectedItemColor: Color.fromARGB(255, 139, 179, 193),
+            unselectedItemColor: Color.fromARGB(255, 10, 10, 10),
+            selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+            items: const [
+              BottomNavigationBarItem(
+                label: "Home",
+                icon: Icon(
+                  Icons.home_sharp,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: "Search",
+                icon: Icon(
+                  Icons.search,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: "TV",
+                icon: Icon(
+                  Icons.tab,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: "Show",
+                icon: Icon(
+                  Icons.movie,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

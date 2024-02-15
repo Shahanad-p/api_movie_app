@@ -1,48 +1,15 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/controller/search_provider.dart';
 import 'package:movie_app/view/detail_screen.dart';
 import 'package:provider/provider.dart';
 
-class SearchScreen extends StatefulWidget {
+class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
   @override
-  State<SearchScreen> createState() => _SearchScreenState();
-}
-
-List<String> hintTexts = [
-  "Trending movies",
-  "Top rated movies",
-  "Current shows",
-  "Upcoming movies",
-  "TV shows"
-];
-
-late Timer timer;
-int currentHintIndex = 0;
-
-class _SearchScreenState extends State<SearchScreen> {
-  @override
-  void initState() {
-    super.initState();
-    timer = Timer.periodic(const Duration(seconds: 2), (timer) {
-      setState(() {
-        currentHintIndex = (currentHintIndex + 1) % hintTexts.length;
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    timer.cancel();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final searchcontroller = Provider.of<SearchProvider>(context);
+    final searchMovieProvider = Provider.of<SearchProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -67,25 +34,26 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
                 child: TextFormField(
                   onChanged: (value) {
-                    searchcontroller.searchMovies(value);
+                    searchMovieProvider.searchMovies(value);
                   },
-                  controller: searchcontroller.queryController,
+                  controller: searchMovieProvider.queryController,
                   style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: hintTexts[currentHintIndex],
+                    hintText: 'Search for movies',
                     hintStyle: const TextStyle(color: Colors.white),
                     contentPadding: const EdgeInsets.only(left: 15, top: 20),
-                    suffixIcon: searchcontroller.queryController.text.isNotEmpty
-                        ? IconButton(
-                            color: Colors.red,
-                            icon: const Icon(Icons.clear),
-                            onPressed: () {
-                              searchcontroller.queryController.clear();
-                              searchcontroller.searchMovies('');
-                            },
-                          )
-                        : null,
+                    suffixIcon:
+                        searchMovieProvider.queryController.text.isNotEmpty
+                            ? IconButton(
+                                color: Colors.red,
+                                icon: const Icon(Icons.clear),
+                                onPressed: () {
+                                  searchMovieProvider.queryController.clear();
+                                  searchMovieProvider.searchMovies('');
+                                },
+                              )
+                            : null,
                   ),
                 ),
               ),
@@ -93,14 +61,14 @@ class _SearchScreenState extends State<SearchScreen> {
               Center(
                 child: SizedBox(
                   height: 650,
-                  child: searchcontroller.searchResults.isEmpty
+                  child: searchMovieProvider.searchResults.isEmpty
                       ? const Center(
                           child: Text(
-                          'Search for movies',
+                          'No movies',
                           style: TextStyle(color: Colors.grey),
                         ))
                       : GridView.builder(
-                          itemCount: searchcontroller.searchResults.length,
+                          itemCount: searchMovieProvider.searchResults.length,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   mainAxisSpacing: 8,
@@ -109,7 +77,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                   childAspectRatio: 1 / 1.4),
                           itemBuilder: (context, index) {
                             final searchdata =
-                                searchcontroller.searchResults[index];
+                                searchMovieProvider.searchResults[index];
 
                             return GestureDetector(
                               onTap: () {

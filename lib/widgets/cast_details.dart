@@ -1,5 +1,4 @@
 // ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/models/cast_mode.dart';
@@ -14,12 +13,10 @@ class CastDetailsWidget extends StatelessWidget {
     return SizedBox(
       height: 130,
       child: FutureBuilder(
-        // future:Provider.of<CastProvider>(context,listen: false).loadCast(context, id),
         future: ApiService().getCast(
-          castUrl:
-              'https://api.themoviedb.org/3/movie/$id/credits?api_key=${Constant.apiKey}',
-          context: context,
-        ),
+            castUrl:
+                'https://api.themoviedb.org/3/movie/$id/credits?api_key=${Constant.apiKey}',
+            context: context),
         builder: (context, AsyncSnapshot<List<CastModel>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
