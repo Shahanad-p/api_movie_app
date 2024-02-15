@@ -31,40 +31,18 @@ class ApiService {
         final List<dynamic> searchMovies = searchData["results"];
         return searchMovies.map((search) => Movies.fromJson(search)).toList();
       } else {
-        print('Error: ${response.statusCode} - ${response.statusMessage}');
+        // print('Error: ${response.statusCode} - ${response.statusMessage}');
         return [];
       }
-    } on DioError catch (e) {
-      print('Dio Error: ${e.message}');
+    } on DioError {
+      // print('Dio Error: ${e.message}');
       return [];
     } catch (e) {
-      print("Error: $e");
+      // print("Error: $e");
       return [];
     }
   }
 
-  // Future<List<CastModel>> getAllCasts(
-  //     {required castUrl, required context}) async {
-  //   try {
-  //     final response = await dio.get(castUrl);
-  //     if (response.statusCode == 200) {
-  //       final Map<String, dynamic> data = response.data;
-  //       if (data.containsKey('cast')) {
-  //         final List<dynamic> result = data['cast'];
-  //         return result.map((cast) => CastModel.fromJson(cast)).toList();
-  //       } else {
-  //         throw Exception('No "cast" key in response');
-  //       }
-  //     } else {
-  //       print('${response.statusMessage}');
-  //       return [];
-  //     }
-  //   } catch (e) {
-  //     return [];
-  //   }
-  // }
-  //////////////////////
-  ///
   Future<List<CastModel>> getCast(
       {required String castUrl, required BuildContext context}) async {
     try {

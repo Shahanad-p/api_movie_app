@@ -1,50 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:movie_app/constant/constant.dart';
-// import 'package:movie_app/view/detail_screen.dart';
-
-// class MovieUiScreen extends StatelessWidget {
-//   const MovieUiScreen({super.key, required this.snapshot});
-//   final AsyncSnapshot snapshot;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       height: 220,
-//       width: double.infinity,
-//       child: ListView.builder(
-//         scrollDirection: Axis.horizontal,
-//         physics: const BouncingScrollPhysics(),
-//         itemCount: snapshot.data!.length,
-//         itemBuilder: (context, index) => Padding(
-//           padding: const EdgeInsets.all(5.0),
-//           child: GestureDetector(
-//             onTap: () {
-//               Navigator.of(context).push(
-//                 MaterialPageRoute(
-//                   builder: (context) => DetailScreen(
-//                     movies: snapshot.data[index],
-//                     id: snapshot.data![index],
-//                   ),
-//                 ),
-//               );
-//             },
-//             child: ClipRRect(
-//               borderRadius: BorderRadius.circular(15),
-//               child: SizedBox(
-//                 width: 170,
-//                 child: Image.network(
-//                   filterQuality: FilterQuality.high,
-//                   fit: BoxFit.cover,
-//                   '${Constant.imagePath}${snapshot.data![index].posterPath}',
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/models/movies_model.dart';
@@ -68,14 +21,12 @@ class MovieUiScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         itemCount: snapshot.data!.length,
         itemBuilder: (context, index) {
-          // Add spacing between containers
           const double containerSpacing = 10;
 
           return SizedBox(
-            width: 200 + containerSpacing, // Add spacing to the width
+            width: 200 + containerSpacing,
             child: Padding(
-              padding: const EdgeInsets.only(
-                  right: containerSpacing), // Add spacing to the right
+              padding: const EdgeInsets.only(right: containerSpacing),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -90,7 +41,7 @@ class MovieUiScreen extends StatelessWidget {
                 },
                 child: Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(15),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -114,7 +65,7 @@ class MovieUiScreen extends StatelessWidget {
                             snapshot.data[index].title,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              fontSize: 14,
+                              fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
