@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/controller/home_provider.dart';
+import 'package:movie_app/models/movies_model.dart';
 import 'package:movie_app/widgets/movie_ui_screen.dart';
 import 'package:movie_app/widgets/trending_movies.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +43,9 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.trendingUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
+                      final data = snapshot.data as List<Movies>;
                       return TrendingMovies(
+                        data: data,
                         snapshot: snapshot,
                       );
                     } else if (snapshot.hasError) {
@@ -72,7 +75,9 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.topRatedUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
+                      final data = snapshot.data as List<Movies>;
                       return MovieUiScreen(
+                        data: data,
                         snapshot: snapshot,
                       );
                     } else if (snapshot.hasError) {
@@ -100,7 +105,9 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.nowPlayingUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
+                      final data = snapshot.data as List<Movies>;
                       return MovieUiScreen(
+                        data: data,
                         snapshot: snapshot,
                       );
                     } else if (snapshot.hasError) {
@@ -130,7 +137,9 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.upcomigUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
+                      final data = snapshot.data as List<Movies>;
                       return MovieUiScreen(
+                        data: data,
                         snapshot: snapshot,
                       );
                     } else if (snapshot.hasError) {

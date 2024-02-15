@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/controller/home_provider.dart';
+import 'package:movie_app/models/movies_model.dart';
 import 'package:movie_app/widgets/tv_ui_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +18,7 @@ class _TvScreenState extends State<TvScreen> {
     final fetchProvider = Provider.of<HomeProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TV Shows'),
+        title: const Text('TV'),
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
@@ -38,7 +39,9 @@ class _TvScreenState extends State<TvScreen> {
                     url: Constant.popularTv, context: context),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
+                    final data = snapshot.data as List<Movies>;
                     return TvUiScreen(
+                      data: data,
                       snapshot: snapshot,
                     );
                   } else if (snapshot.hasError) {
@@ -66,7 +69,9 @@ class _TvScreenState extends State<TvScreen> {
                     url: Constant.topRatedTv, context: context),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
+                    final data = snapshot.data as List<Movies>;
                     return TvUiScreen(
+                      data: data,
                       snapshot: snapshot,
                     );
                   } else if (snapshot.hasError) {
@@ -96,7 +101,9 @@ class _TvScreenState extends State<TvScreen> {
                     url: Constant.popularTv, context: context),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
+                    final data = snapshot.data as List<Movies>;
                     return TvUiScreen(
+                      data: data,
                       snapshot: snapshot,
                     );
                   } else if (snapshot.hasError) {

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
+import 'package:movie_app/models/movies_model.dart';
 import 'package:movie_app/view/detail_screen.dart';
 
 class AllShows extends StatelessWidget {
-  const AllShows({super.key, required this.snapshot});
+  const AllShows(
+      {super.key, required this.snapshot, required List<Movies> data});
   final AsyncSnapshot snapshot;
 
   @override
@@ -13,7 +15,7 @@ class AllShows extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         physics: const BouncingScrollPhysics(),
-        itemCount: 10,
+        itemCount: snapshot.data!.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.all(5.0),
           child: ClipRRect(
@@ -23,8 +25,8 @@ class AllShows extends StatelessWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => DetailScreen(
-                      movies: snapshot.data[index],
-                      id: snapshot.data![index],
+                      movies: snapshot.data![index],
+                      id: snapshot.data![index].id!,
                     ),
                   ),
                 );
@@ -37,7 +39,7 @@ class AllShows extends StatelessWidget {
                   child: Image.network(
                     filterQuality: FilterQuality.high,
                     fit: BoxFit.cover,
-                    '${Constant.imagePath}${snapshot.data[index].posterPath}',
+                    '${Constant.imagePath}${snapshot.data![index].posterPath}',
                   ),
                 ),
               ),
