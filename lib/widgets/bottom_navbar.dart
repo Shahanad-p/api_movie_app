@@ -1,10 +1,10 @@
 // ignore_for_file: use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 import 'package:movie_app/controller/bottom_bar_provide.dart';
 import 'package:movie_app/view/home_screen.dart';
 import 'package:movie_app/view/search_screen.dart';
 import 'package:movie_app/view/show_screen.dart';
+import 'package:movie_app/view/tv_screen.dart';
 import 'package:provider/provider.dart';
 
 class BottomBarContent extends StatelessWidget {
@@ -18,7 +18,7 @@ class BottomBarContent extends StatelessWidget {
         children: const [
           HomeScreen(),
           SearchScreen(),
-          SearchScreen(),
+          TvScreen(),
           ShowScreen(),
         ],
       ),
@@ -32,9 +32,9 @@ class BottomBarContent extends StatelessWidget {
             elevation: 0,
             currentIndex: provider.currentIndex,
             onTap: (index) => provider.bottomBuild(index),
-            backgroundColor: Color.fromARGB(255, 5, 50, 16),
-            selectedItemColor: Color.fromARGB(255, 139, 179, 193),
-            unselectedItemColor: Color.fromARGB(255, 10, 10, 10),
+            backgroundColor: const Color.fromARGB(255, 3, 40, 12),
+            selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+            unselectedItemColor: const Color.fromARGB(255, 102, 173, 206),
             selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
             items: const [
               BottomNavigationBarItem(

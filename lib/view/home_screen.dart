@@ -75,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.topRatedUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      final data = snapshot.data as List<Movies>;
+                      final data = snapshot.data;
                       return MovieUiScreen(
                         data: data,
                         snapshot: snapshot,
@@ -105,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.nowPlayingUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      final data = snapshot.data as List<Movies>;
+                      final data = snapshot.data;
                       return MovieUiScreen(
                         data: data,
                         snapshot: snapshot,
@@ -137,7 +137,7 @@ class HomeScreen extends StatelessWidget {
                       url: Constant.upcomigUrl, context: context),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      final data = snapshot.data as List<Movies>;
+                      final data = snapshot.data;
                       return MovieUiScreen(
                         data: data,
                         snapshot: snapshot,

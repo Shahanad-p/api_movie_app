@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant/constant.dart';
 import 'package:movie_app/controller/home_provider.dart';
-import 'package:movie_app/models/movies_model.dart';
 import 'package:movie_app/widgets/shows_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -30,7 +29,7 @@ class _ShowScreenState extends State<ShowScreen> {
                 fetchProvider.fetchDatas(url: Constant.show, context: context),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                final data = snapshot.data as List<Movies>;
+                final data = snapshot.data;
                 return AllShows(
                   data: data,
                   snapshot: snapshot,
