@@ -33,8 +33,8 @@ class BottomBarContent extends StatelessWidget {
             currentIndex: provider.currentIndex,
             onTap: (index) => provider.bottomBuild(index),
             backgroundColor: const Color.fromARGB(255, 3, 40, 12),
-            selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
-            unselectedItemColor: const Color.fromARGB(255, 102, 173, 206),
+            selectedItemColor: const Color.fromARGB(255, 226, 219, 219),
+            unselectedItemColor: const Color.fromARGB(255, 0, 9, 14),
             selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
             items: const [
               BottomNavigationBarItem(
