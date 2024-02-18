@@ -13,13 +13,13 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: const Text('Search'),
+        title: Text('Search'),
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
         child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
+          physics: BouncingScrollPhysics(),
           child: Column(
             children: [
               Container(
@@ -37,17 +37,17 @@ class SearchScreen extends StatelessWidget {
                     searchMovieProvider.searchMovies(value);
                   },
                   controller: searchMovieProvider.queryController,
-                  style: const TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Search for movies',
-                    hintStyle: const TextStyle(color: Colors.white),
-                    contentPadding: const EdgeInsets.only(left: 15, top: 20),
+                    hintStyle: TextStyle(color: Colors.white),
+                    contentPadding: EdgeInsets.only(left: 15, top: 20),
                     suffixIcon:
                         searchMovieProvider.queryController.text.isNotEmpty
                             ? IconButton(
                                 color: Colors.red,
-                                icon: const Icon(Icons.clear),
+                                icon: Icon(Icons.clear),
                                 onPressed: () {
                                   searchMovieProvider.queryController.clear();
                                   searchMovieProvider.searchMovies('');
@@ -57,12 +57,12 @@ class SearchScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Center(
                 child: SizedBox(
                   height: 650,
                   child: searchMovieProvider.searchResults.isEmpty
-                      ? const Center(
+                      ? Center(
                           child: Text(
                             'No movies',
                             style: TextStyle(color: Colors.grey),
@@ -71,7 +71,7 @@ class SearchScreen extends StatelessWidget {
                       : GridView.builder(
                           itemCount: searchMovieProvider.searchResults.length,
                           gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
+                              SliverGridDelegateWithFixedCrossAxisCount(
                                   mainAxisSpacing: 8,
                                   crossAxisSpacing: 8,
                                   crossAxisCount: 3,
@@ -92,7 +92,7 @@ class SearchScreen extends StatelessWidget {
                                 );
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(5),
+                                padding: EdgeInsets.all(5),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     border: Border.all(color: Colors.white),

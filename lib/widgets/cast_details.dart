@@ -19,11 +19,11 @@ class CastDetailsWidget extends StatelessWidget {
             context: context),
         builder: (context, AsyncSnapshot<List<CastModel>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator();
+            return CircularProgressIndicator();
           } else if (snapshot.hasError) {
             return Text("Error: ${snapshot.error}");
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Text("No data available");
+            return Text("No data available");
           } else {
             return SizedBox(
               height: 130,
@@ -31,15 +31,15 @@ class CastDetailsWidget extends StatelessWidget {
               child: ListView.builder(
                 itemCount: snapshot.data!.length,
                 scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
+                physics: BouncingScrollPhysics(),
                 itemBuilder: (context, index) {
                   CastModel casts = snapshot.data![index];
                   return Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: EdgeInsets.only(left: 10),
                     child: Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(2.0),
+                          padding: EdgeInsets.all(2.0),
                           child: CircleAvatar(
                             radius: 35,
                             backgroundImage: NetworkImage(
@@ -48,7 +48,7 @@ class CastDetailsWidget extends StatelessWidget {
                         ),
                         Text(
                           casts.name!,
-                          style: const TextStyle(color: Colors.grey),
+                          style: TextStyle(color: Colors.grey),
                         ),
                       ],
                     ),

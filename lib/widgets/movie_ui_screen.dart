@@ -18,15 +18,15 @@ class MovieUiScreen extends StatelessWidget {
       height: 250,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         itemCount: snapshot.data!.length,
         itemBuilder: (context, index) {
-          const double containerSpacing = 10;
+          double containerSpacing = 10;
 
           return SizedBox(
             width: 200 + containerSpacing,
             child: Padding(
-              padding: const EdgeInsets.only(right: containerSpacing),
+              padding: EdgeInsets.only(right: containerSpacing),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -48,7 +48,7 @@ class MovieUiScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: ClipRRect(
-                          borderRadius: const BorderRadius.vertical(
+                          borderRadius: BorderRadius.vertical(
                             top: Radius.circular(10),
                           ),
                           child: Image.network(
@@ -59,12 +59,12 @@ class MovieUiScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(5),
+                        padding: EdgeInsets.all(5),
                         child: Center(
                           child: Text(
                             snapshot.data[index].title,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),

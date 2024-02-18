@@ -16,7 +16,7 @@ class TvDetails extends StatelessWidget {
         slivers: [
           SliverAppBar.large(
             leading: Container(
-              margin: const EdgeInsets.only(top: 15, left: 15, right: 8),
+              margin: EdgeInsets.only(top: 15, left: 15, right: 8),
               decoration: BoxDecoration(
                   color: Colors.white70,
                   borderRadius: BorderRadius.circular(10)),
@@ -24,7 +24,7 @@ class TvDetails extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: const Icon(Icons.arrow_back_ios)),
+                  icon: Icon(Icons.arrow_back_ios)),
             ),
             backgroundColor: Colors.black,
             expandedHeight: 500,
@@ -33,7 +33,7 @@ class TvDetails extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 movies.title!,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                   shadows: [
@@ -46,7 +46,7 @@ class TvDetails extends StatelessWidget {
                 ),
               ),
               background: ClipRRect(
-                borderRadius: const BorderRadius.only(
+                borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(25),
                     bottomRight: Radius.circular(25)),
                 child: Image.network(
@@ -59,39 +59,39 @@ class TvDetails extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(12),
+              padding: EdgeInsets.all(12),
               child: Column(
                 children: [
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   CastDetailsWidget(id: id),
-                  const Text(
+                  Text(
                     'Ovreview',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
                         color: Colors.white),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   Text(
                     movies.overview!,
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         color: Colors.white),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15),
                   SizedBox(
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            padding: const EdgeInsets.all(8),
+                            padding: EdgeInsets.all(8),
                             decoration: BoxDecoration(
                                 border: Border.all(color: Colors.grey),
                                 borderRadius: BorderRadius.circular(10)),
                             child: Row(
                               children: [
-                                const Text(
+                                Text(
                                   'Release date: ',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -100,7 +100,7 @@ class TvDetails extends StatelessWidget {
                                 ),
                                 Text(
                                   movies.releaseDate!,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                       color: Colors.white),
@@ -109,26 +109,26 @@ class TvDetails extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            padding: const EdgeInsets.all(8),
+                            padding: EdgeInsets.all(8),
                             decoration: BoxDecoration(
                                 border: Border.all(color: Colors.grey),
                                 borderRadius: BorderRadius.circular(10)),
                             child: Row(children: [
-                              const Text(
+                              Text(
                                 'Rating: ',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                     color: Colors.white),
                               ),
-                              const Icon(
+                              Icon(
                                 Icons.star,
                                 color: Colors.amber,
                                 size: 16,
                               ),
                               Text(
                                 '${movies.voteAverage?.toStringAsFixed(1)}/10',
-                                style: const TextStyle(
+                                style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                     color: Colors.white),

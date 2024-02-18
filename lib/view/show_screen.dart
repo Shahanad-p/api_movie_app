@@ -18,11 +18,11 @@ class _ShowScreenState extends State<ShowScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: const Text('Shows'),
+        title: Text('Shows'),
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 12, right: 12, top: 11),
+        padding: EdgeInsets.only(left: 12, right: 12, top: 11),
         child: SizedBox(
           child: FutureBuilder(
             future:
@@ -38,10 +38,10 @@ class _ShowScreenState extends State<ShowScreen> {
                 return Center(
                     child: Text(
                   snapshot.error.toString(),
-                  style: const TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white),
                 ));
               } else {
-                return const Center(
+                return Center(
                   child: CircularProgressIndicator(),
                 );
               }

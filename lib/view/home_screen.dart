@@ -25,18 +25,18 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Text('Trending Movies',
+              Text('Trending Movies',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
-              const SizedBox(height: 10.10),
+              SizedBox(height: 10.10),
               SizedBox(
                 child: FutureBuilder(
                   future: fetchProvider.fetchDatas(
@@ -52,23 +52,23 @@ class HomeScreen extends StatelessWidget {
                       return Center(
                           child: Text(
                         snapshot.error.toString(),
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white),
                       ));
                     } else {
-                      return const Center(
+                      return Center(
                         child: CircularProgressIndicator(),
                       );
                     }
                   },
                 ),
               ),
-              const SizedBox(height: 5),
-              const Text('Top Rated Movies',
+              SizedBox(height: 5),
+              Text('Top Rated Movies',
                   style: TextStyle(
                       color: Colors.amberAccent,
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
-              const SizedBox(height: 5),
+              SizedBox(height: 5),
               SizedBox(
                 child: FutureBuilder(
                   future: fetchProvider.fetchDatas(
@@ -84,21 +84,21 @@ class HomeScreen extends StatelessWidget {
                       return Center(
                           child: Text(
                         snapshot.error.toString(),
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white),
                       ));
                     } else {
-                      return const Text('');
+                      return Text('');
                     }
                   },
                 ),
               ),
-              const SizedBox(height: 5),
-              const Text('Now Playing',
+              SizedBox(height: 5),
+              Text('Now Playing',
                   style: TextStyle(
                       color: Colors.amberAccent,
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
               SizedBox(
                 child: FutureBuilder(
                   future: fetchProvider.fetchDatas(
@@ -114,23 +114,23 @@ class HomeScreen extends StatelessWidget {
                       return Center(
                           child: Text(
                         snapshot.error.toString(),
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white),
                       ));
                     } else {
-                      return const Text('');
+                      return Text('');
                     }
                   },
                 ),
               ),
-              const SizedBox(height: 5),
-              const Text(
+              SizedBox(height: 5),
+              Text(
                 'Upcoming Movies',
                 style: TextStyle(
                     color: Colors.amberAccent,
                     fontWeight: FontWeight.bold,
                     fontSize: 20),
               ),
-              const SizedBox(height: 5),
+              SizedBox(height: 5),
               SizedBox(
                 child: FutureBuilder(
                   future: fetchProvider.fetchDatas(
@@ -146,10 +146,10 @@ class HomeScreen extends StatelessWidget {
                       return Center(
                           child: Text(
                         snapshot.error.toString(),
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white),
                       ));
                     } else {
-                      return const Text('');
+                      return Text('');
                     }
                   },
                 ),

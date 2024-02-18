@@ -17,23 +17,23 @@ class _TvScreenState extends State<TvScreen> {
     final fetchProvider = Provider.of<HomeProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TV'),
+        title: Text('TV'),
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: EdgeInsets.all(15.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('On The Air TV Shows',
+              Text('On The Air TV Shows',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 18)),
-              const SizedBox(height: 5),
+              SizedBox(height: 5),
               SizedBox(
                 child: FutureBuilder(
                   future: fetchProvider.fetchDatas(
@@ -49,21 +49,21 @@ class _TvScreenState extends State<TvScreen> {
                       return Center(
                           child: Text(
                         snapshot.error.toString(),
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white),
                       ));
                     } else {
-                      return const Text('');
+                      return Text('');
                     }
                   },
                 ),
               ),
-              const SizedBox(height: 5.5),
-              const Text('Top Rated TV Shows',
+              SizedBox(height: 5.5),
+              Text('Top Rated TV Shows',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 18)),
-              const SizedBox(height: 5),
+              SizedBox(height: 5),
               SizedBox(
                 child: FutureBuilder(
                   future: fetchProvider.fetchDatas(
@@ -79,23 +79,23 @@ class _TvScreenState extends State<TvScreen> {
                       return Center(
                           child: Text(
                         snapshot.error.toString(),
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white),
                       ));
                     } else {
-                      return const Center(
+                      return Center(
                         child: CircularProgressIndicator(),
                       );
                     }
                   },
                 ),
               ),
-              const SizedBox(height: 5),
-              const Text('Popular TV Shows',
+              SizedBox(height: 5),
+              Text('Popular TV Shows',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 18)),
-              const SizedBox(height: 5),
+              SizedBox(height: 5),
               SizedBox(
                 child: FutureBuilder(
                   future: fetchProvider.fetchDatas(
@@ -111,10 +111,10 @@ class _TvScreenState extends State<TvScreen> {
                       return Center(
                           child: Text(
                         snapshot.error.toString(),
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white),
                       ));
                     } else {
-                      return const Text('');
+                      return Text('');
                     }
                   },
                 ),

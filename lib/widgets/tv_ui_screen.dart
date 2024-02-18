@@ -15,15 +15,15 @@ class TvUiScreen extends StatelessWidget {
       height: 250,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         itemCount: snapshot.data!.length,
         itemBuilder: (context, index) {
-          const double containerSpacing = 10;
+          double containerSpacing = 10;
 
           return SizedBox(
             width: 200 + containerSpacing,
             child: Padding(
-              padding: const EdgeInsets.only(right: containerSpacing),
+              padding: EdgeInsets.only(right: containerSpacing),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -45,7 +45,7 @@ class TvUiScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: ClipRRect(
-                          borderRadius: const BorderRadius.vertical(
+                          borderRadius: BorderRadius.vertical(
                             top: Radius.circular(12),
                           ),
                           child: Image.network(
@@ -56,12 +56,12 @@ class TvUiScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(5.0),
+                        padding: EdgeInsets.all(5.0),
                         child: Center(
                           child: Text(
                             snapshot.data[index].name,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 13,
                               fontWeight: FontWeight.bold,
                             ),

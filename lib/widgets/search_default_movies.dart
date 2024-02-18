@@ -18,7 +18,7 @@ class TrendingMovies extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      padding: EdgeInsets.symmetric(vertical: 16.0),
       child: CarouselSlider.builder(
         itemCount: snapshot.data!.length,
         itemBuilder: (context, index, pageViewIndex) {
@@ -39,7 +39,7 @@ class TrendingMovies extends StatelessWidget {
               child: Container(
                 height: 200,
                 width: 250,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black26,
@@ -64,7 +64,7 @@ class TrendingMovies extends StatelessWidget {
           autoPlayCurve: Curves.fastOutSlowIn,
           enlargeCenterPage: true,
           pageSnapping: true,
-          autoPlayAnimationDuration: const Duration(seconds: 1),
+          autoPlayAnimationDuration: Duration(seconds: 1),
         ),
       ),
     );

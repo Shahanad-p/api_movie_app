@@ -15,7 +15,7 @@ class BottomBarContent extends StatelessWidget {
     return Scaffold(
       body: IndexedStack(
         index: provider.currentIndex,
-        children: const [
+        children: [
           HomeScreen(),
           SearchScreen(),
           TvScreen(),
@@ -23,7 +23,7 @@ class BottomBarContent extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: BottomNavigationBar(
@@ -32,11 +32,11 @@ class BottomBarContent extends StatelessWidget {
             elevation: 0,
             currentIndex: provider.currentIndex,
             onTap: (index) => provider.bottomBuild(index),
-            backgroundColor: const Color.fromARGB(255, 3, 40, 12),
-            selectedItemColor: const Color.fromARGB(255, 226, 219, 219),
-            unselectedItemColor: const Color.fromARGB(255, 0, 9, 14),
+            backgroundColor: Color.fromARGB(255, 3, 40, 12),
+            selectedItemColor: Color.fromARGB(255, 226, 219, 219),
+            unselectedItemColor: Color.fromARGB(255, 0, 9, 14),
             selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-            items: const [
+            items: [
               BottomNavigationBarItem(
                 label: "Home",
                 icon: Icon(

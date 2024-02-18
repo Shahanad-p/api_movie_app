@@ -14,10 +14,10 @@ class AllShows extends StatelessWidget {
       height: double.infinity,
       child: ListView.builder(
         scrollDirection: Axis.vertical,
-        physics: const BouncingScrollPhysics(),
+        physics:  BouncingScrollPhysics(),
         itemCount: snapshot.data!.length,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding:  EdgeInsets.all(5.0),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: GestureDetector(
