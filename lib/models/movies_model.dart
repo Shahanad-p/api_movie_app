@@ -22,11 +22,11 @@ class Movies {
   });
   factory Movies.fromJson(Map<String, dynamic> json) {
     return Movies(
-      title: json['title'] ?? ' titleNo',
-      backDropPath: json['backdrop_path'] ?? 'No image',
+      title: json['title'] ?? 'assets/2134883.jpg',
+      backDropPath: json['backdrop_path'] ?? 'assets/2134883.jpg',
       originalTitle: json['original_title'] ?? 'No title',
       overview: json['overview'] ?? 'No overview',
-      posterPath: json['poster_path'] ?? 'No image',
+      posterPath: json['poster_path'] ?? 'assets/2134883.jpg',
       releaseDate: json['release_date'] ?? 'No date',
       voteAverage: json['vote_average'].toDouble() ?? 'No voting',
       id: json['id'] ?? 'No data',

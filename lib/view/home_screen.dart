@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
-              const SizedBox(height: 10),
+              const SizedBox(height: 10.10),
               SizedBox(
                 child: FutureBuilder(
                   future: fetchProvider.fetchDatas(

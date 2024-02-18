@@ -17,7 +17,7 @@ class CastModel {
     return CastModel(
       name: json['name'] ?? "No name",
       originalName: json['original_name'] ?? "No name",
-      profilePath: json['profile_path'] ?? "No image",
+      profilePath: json['profile_path'] ?? "assets/2117499.jpg",
       charecter: json['character'] ?? "No name",
       knowForDepartment: json['known_for_department'] ?? "No Data",
     );

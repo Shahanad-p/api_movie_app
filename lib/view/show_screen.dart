@@ -22,7 +22,7 @@ class _ShowScreenState extends State<ShowScreen> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 12, right: 12, top: 10),
+        padding: const EdgeInsets.only(left: 12, right: 12, top: 11),
         child: SizedBox(
           child: FutureBuilder(
             future:

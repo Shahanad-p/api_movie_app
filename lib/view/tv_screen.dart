@@ -57,7 +57,7 @@ class _TvScreenState extends State<TvScreen> {
                   },
                 ),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 5.5),
               const Text('Top Rated TV Shows',
                   style: TextStyle(
                       color: Colors.white,

@@ -38,7 +38,7 @@ class TvDetails extends StatelessWidget {
                   fontSize: 18,
                   shadows: [
                     Shadow(
-                      offset: Offset(2.0, 2.0),
+                      offset: Offset(2.0, 2.1),
                       blurRadius: 5.0,
                       color: Colors.black,
                     ),

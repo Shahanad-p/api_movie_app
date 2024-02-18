@@ -64,9 +64,10 @@ class SearchScreen extends StatelessWidget {
                   child: searchMovieProvider.searchResults.isEmpty
                       ? const Center(
                           child: Text(
-                          'No movies',
-                          style: TextStyle(color: Colors.grey),
-                        ))
+                            'No movies',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        )
                       : GridView.builder(
                           itemCount: searchMovieProvider.searchResults.length,
                           gridDelegate:
