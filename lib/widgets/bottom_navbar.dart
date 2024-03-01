@@ -25,7 +25,7 @@ class BottomBarContent extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.all(8.0),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(15.0),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             unselectedFontSize: 0,

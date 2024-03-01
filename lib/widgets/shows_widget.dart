@@ -19,7 +19,7 @@ class AllShows extends StatelessWidget {
         itemBuilder: (context, index) => Padding(
           padding:  EdgeInsets.all(5.0),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.10),
             child: GestureDetector(
               onTap: () {
                 Navigator.of(context).push(

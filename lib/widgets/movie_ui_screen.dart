@@ -41,7 +41,7 @@ class MovieUiScreen extends StatelessWidget {
                 },
                 child: Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(15.10),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
