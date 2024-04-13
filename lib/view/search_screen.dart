@@ -42,7 +42,7 @@ class SearchScreen extends StatelessWidget {
                     border: InputBorder.none,
                     hintText: 'Search for movies',
                     hintStyle: TextStyle(color: Colors.white),
-                    contentPadding: EdgeInsets.only(left: 15, top: 20),
+                    contentPadding: EdgeInsets.only(left: 15.10, top: 20.10),
                     suffixIcon:
                         searchMovieProvider.queryController.text.isNotEmpty
                             ? IconButton(

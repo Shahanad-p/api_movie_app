@@ -24,7 +24,7 @@ class _TvScreenState extends State<TvScreen> {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.all(15.0),
+          padding: EdgeInsets.all(15.10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

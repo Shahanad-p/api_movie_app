@@ -16,7 +16,7 @@ class TvDetails extends StatelessWidget {
         slivers: [
           SliverAppBar.large(
             leading: Container(
-              margin: EdgeInsets.only(top: 15, left: 15, right: 8),
+              margin: EdgeInsets.only(top: 15.10, left: 15.10, right: 8.10),
               decoration: BoxDecoration(
                   color: Colors.white70,
                   borderRadius: BorderRadius.circular(10)),

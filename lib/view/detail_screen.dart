@@ -16,7 +16,7 @@ class DetailScreen extends StatelessWidget {
         slivers: [
           SliverAppBar.large(
             leading: Container(
-              margin:  EdgeInsets.only(top: 15, left: 15, right: 8),
+              margin:  EdgeInsets.only(top: 15.8, left: 15.8, right: 8),
               decoration: BoxDecoration(
                   color: Colors.white70,
                   borderRadius: BorderRadius.circular(10)),

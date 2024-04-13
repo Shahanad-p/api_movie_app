@@ -62,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 5),
+              SizedBox(height: 5.8),
               Text('Top Rated Movies',
                   style: TextStyle(
                       color: Colors.amberAccent,
